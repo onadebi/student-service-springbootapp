@@ -7,8 +7,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import java.time.LocalDate;
-import java.util.Calendar;
 import java.util.List;
 
 @RestController
@@ -16,6 +14,8 @@ import java.util.List;
 public class StudentController {
 
     private final IStudentService _studentService;
+//    @Value("${spring.config.activate.on-profile}")
+//    private String _profile;
 
     @Autowired
     public StudentController(StudentService studentService) {
@@ -24,6 +24,7 @@ public class StudentController {
 
     @GetMapping
     public List<Student> getStudents(){
+//        System.out.println("Application running is: "+ _profile);
         return _studentService.getStudents();
     }
 
