@@ -1,0 +1,33 @@
+name: Build Check - Ensure that pplication builds successfully
+
+on:
+  push:
+    branches:
+      - main
+      - develop
+      - master
+  
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Set up Java
+        uses: actions/setup-java@v2
+        with:
+          # distribution: 'adopt' specifies that you want to use AdoptOpenJDK.
+          distribution: 'adopt'
+          # java-version: '20.0.2+8' specifies the Java version. Note that GitHub Actions may not have exact matches for specific build versions like "2023-07-18," so using the version number provided by AdoptOpenJDK is recommended.
+          java-version: '20.0.2+8'
+          # jdk-type: 'hotspot' specifies that you want to use the HotSpot JVM. You can also specify 'openj9' to use the Eclipse OpenJ9 JVM.
+          jdk-type: 'hotspot'
+          # cache: 'maven' is used to cache the Maven dependencies, which can significantly speed up the build process
+          cache: 'maven'
+
+      - name: Maven Build and Tests
+        run: |
+          mvn clean install
+

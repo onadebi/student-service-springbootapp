@@ -47,3 +47,8 @@ bash
 java -jar target/your-application.jar
 ```
 Replace ```your-application.jar``` with the actual name of your generated JAR file.
+
+> If you want to skip tests during the build, you can use the -DskipTests option:
+```
+mvn install -DskipTests
+```
