@@ -27,9 +27,13 @@ jobs:
           # cache: 'maven' is used to cache the Maven dependencies, which can significantly speed up the build process
           cache: maven
 
-      - name: Maven Build and Tests
+      - name: Maven Build
         run: |
-          mvn clean install
+          mvn clean install -DskipTests=true
+          
+      - name: Maven Run Tests
+        run: |
+          mvn test
 
       # Optional: Uploads the full dependency graph to GitHub to improve the quality of Dependabot alerts this repository can receive
       # - name: Update dependency graph
