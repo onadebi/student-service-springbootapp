@@ -15,9 +15,8 @@ public class StudentConfig {
         return args -> {
             
             List<Student> allStudents = List.of(
-                    new Student("Onaefe Edebi", "onaefe@onadebi.com", LocalDate.of(2023, Calendar.SEPTEMBER, 23),
-                            150),
-                    new Student("John Doe", "j.doe@onadebi.com", LocalDate.of(2023, Calendar.SEPTEMBER, 23), 250));
+                    new Student("Onaefe Edebi", "onaefe@onadebi.com", LocalDate.of(1990, Calendar.SEPTEMBER, 23)),
+                    new Student("John Doe", "j.doe@onadebi.com", LocalDate.of(1980, Calendar.SEPTEMBER, 23)));
             
             studentRepository.saveAll(allStudents);
         };

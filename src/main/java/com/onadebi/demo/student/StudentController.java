@@ -2,10 +2,10 @@ package com.onadebi.demo.student;
 
 import com.onadebi.demo.student.services.IStudentService;
 import com.onadebi.demo.student.services.StudentService;
+import com.onadebi.demo.utils.GenResponse;
+
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -26,6 +26,11 @@ public class StudentController {
     public List<Student> getStudents(){
 //        System.out.println("Application running is: "+ _profile);
         return _studentService.getStudents();
+    }
+
+    @PostMapping
+    public GenResponse<Student> registerNewStudent(@RequestBody Student student){
+        return _studentService.addNewStudent(student);
     }
 
 }
