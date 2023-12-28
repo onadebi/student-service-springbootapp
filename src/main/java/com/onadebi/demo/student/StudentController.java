@@ -1,5 +1,6 @@
 package com.onadebi.demo.student;
 
+import com.onadebi.demo.student.dto.StudentUpdateDTO;
 import com.onadebi.demo.student.services.IStudentService;
 import com.onadebi.demo.student.services.StudentService;
 import com.onadebi.demo.utils.GenResponse;
@@ -24,13 +25,22 @@ public class StudentController {
 
     @GetMapping
     public List<Student> getStudents(){
-//        System.out.println("Application running is: "+ _profile);
         return _studentService.getStudents();
     }
 
     @PostMapping
     public GenResponse<Student> registerNewStudent(@RequestBody Student student){
         return _studentService.addNewStudent(student);
+    }
+
+    @DeleteMapping(path = "{studentId}")
+    public GenResponse<Student> registerNewStudent(@PathVariable("studentId") Long studentId){
+        return _studentService.deleteStudent(studentId);
+    }
+
+    @PutMapping(path="{studentId}")
+    public GenResponse<StudentUpdateDTO> registerNewStudent(@PathVariable("studentId") Long studentId, @RequestBody StudentUpdateDTO student){
+        return _studentService.updateStudent(studentId, student);
     }
 
 }
