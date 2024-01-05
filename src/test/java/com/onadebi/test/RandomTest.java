@@ -2,12 +2,16 @@ package com.onadebi.test;
 
 import org.junit.jupiter.api.Assertions;
 // import static org.junit.jupiter.api.Assertions.*;
+import static org.assertj.core.api.Assertions.*;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 public class RandomTest {
 
     CalculateMethds calculateMethds;
+
+    void contextLoads() {
+    }
 
     @BeforeEach
     public void InitTest() {
@@ -17,7 +21,13 @@ public class RandomTest {
     @Test
     public void testDivide() {
         System.out.println("RandomTest.testRandom()");
-        Assertions.assertEquals(10, calculateMethds.divide(20, 2));
+        // given
+        int num1 = 20;
+        int num2 = 2;
+        // when
+        int result = calculateMethds.divide(num1, num2);
+        // then
+        Assertions.assertEquals(10, result);
     }
 
     @Test
