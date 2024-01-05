@@ -27,25 +27,29 @@ class StudentRepositoryTest {
 
     @Test
     public void testFindStudentByEmail() {
-        // Given
+        // Given: Arrange
         Student student = new Student();
         student.setEmail("test@example.com");
         studentRepository.save(student);
 
-        // When
+        // When: Act
         Optional<Student> optionalStudent = studentRepository.findStudentByEmail("test@example.com");
 
-        // Then:: Assert that the student is found
+        // Then: Assert that the student is found
         assertTrue(optionalStudent.isPresent());
         assertEquals("test@example.com", optionalStudent.get().getEmail());
     }
 
     @Test
     public void testFindStudentByEmail_NotFound() {
-        // Find a non-existent student by email
-        Optional<Student> optionalStudent = studentRepository.findStudentByEmail("nonexistent@example.com");
 
-        // Assert that the student is not found
+        // Given : Arrange
+        String studentEmail = "nonexistent@example.com";
+
+        // When: Act
+        Optional<Student> optionalStudent = studentRepository.findStudentByEmail(studentEmail);
+
+        // Then: Assert that the student is not found
         assertFalse(optionalStudent.isPresent());
     }
 }
