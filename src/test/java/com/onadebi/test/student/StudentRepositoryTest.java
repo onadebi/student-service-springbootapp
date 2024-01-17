@@ -7,6 +7,7 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import java.util.Optional;
 
+import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
@@ -24,6 +25,11 @@ class StudentRepositoryTest {
     // @Autowired
     @Autowired
     private StudentRepository studentRepository;
+
+    // @AfterAll
+    // void tearDown() {
+    //     studentRepository.deleteAll();
+    // }
 
     @Test
     public void testFindStudentByEmail() {
