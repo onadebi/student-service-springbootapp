@@ -14,7 +14,14 @@ docker network create onax-postgres-docker-network
 ```
 docker network rm onax-postgres-docker-network
 ```
-
+> List all docker volumes
+```
+docker volume list
+```
+> Remove a docker volumes
+```
+docker volume rm <nameOfVolume>
+```
 
 > Run the PostgresDb in the network: <strong style='font-style:italic;color:green;'>onax-postgres-docker-network</strong>
 ```
